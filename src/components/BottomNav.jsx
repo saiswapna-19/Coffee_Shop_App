@@ -13,7 +13,7 @@ export default function BottomNav() {
   const { pathname } = useLocation();
 
   return (
-    <nav className="flex items-center justify-between">
+    <nav className="flex w-full items-center justify-around">
       {items.map(({ label, icon: Icon, path }) => {
         const active =
           pathname === path ||
@@ -22,15 +22,21 @@ export default function BottomNav() {
 
         return (
           <button
-            key={label}
+            key={path}
+            type="button"
             onClick={() => navigate(path)}
             aria-label={label}
-            className={`flex flex-col items-center gap-1 ${
+            className={`flex min-w-0 flex-1 flex-col items-center justify-center gap-1 ${
               active ? "text-[#C67C4E]" : "text-[#9B9B9B]"
             }`}
           >
-            <Icon size={23} strokeWidth={active ? 2.5 : 1.8} />
-            <span className="text-[10px]">{label}</span>
+            <Icon
+              className="h-[22px] w-[22px] shrink-0"
+              strokeWidth={active ? 2.5 : 1.8}
+            />
+            <span className="max-w-full truncate text-[10px]">
+              {label}
+            </span>
           </button>
         );
       })}
