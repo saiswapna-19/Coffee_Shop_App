@@ -9,7 +9,7 @@ export default function MainLayout() {
 
   return (
     <div className="min-h-dvh w-full overflow-x-clip bg-[#E8E8E8]">
-      <div className="relative mx-auto min-h-dvh w-full max-w-[375px] overflow-x-clip bg-white shadow-xl">
+      <div className="relative mx-auto min-h-dvh w-full max-w-[440px] overflow-x-clip bg-white shadow-xl">
         {!hiddenHeader.includes(pathname) && <Header />}
         <Outlet />
         <BottomSafeArea />
